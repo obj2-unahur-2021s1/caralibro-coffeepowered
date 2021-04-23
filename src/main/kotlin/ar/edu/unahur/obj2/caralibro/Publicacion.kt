@@ -14,3 +14,11 @@ class Foto(val alto: Int, val ancho: Int) : Publicacion() {
 class Texto(val contenido: String) : Publicacion() {
   override fun espacioQueOcupa() = contenido.length
 }
+
+class Video (val segundos: Int, var calidadDeVideo: Int) : Publicacion(){
+  val videoSD = 1
+  val video720p = 3
+  val video1080p = 6
+  override fun espacioQueOcupa() = segundos * calidadDeVideo
+
+}
