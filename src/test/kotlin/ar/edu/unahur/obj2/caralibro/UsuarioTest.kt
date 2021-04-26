@@ -7,7 +7,7 @@ class UsuarioTest : DescribeSpec({
   describe("Caralibro") {
     val saludoCumpleanios = Texto("Felicidades Pepito, que los cumplas muy feliz")
     val fotoEnCuzco = Foto(768, 1024)
-    val videoPublicado = Video(120)
+    //val videoPublicado = Video(120)
 
     describe("Una publicación") {
       describe("de tipo foto") {
