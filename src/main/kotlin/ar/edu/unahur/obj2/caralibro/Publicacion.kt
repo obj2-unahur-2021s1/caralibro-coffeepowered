@@ -2,17 +2,8 @@ package ar.edu.unahur.obj2.caralibro
 
 import kotlin.math.ceil
 
-class MeGusta (val gustoPublicacion: Boolean)
-
 abstract class Publicacion {
-
   abstract fun espacioQueOcupa(): Int
-
-  val meGustas = mutableListOf<MeGusta>()
-
-  fun cantidadDeMegustas() = meGustas.size
-
-  fun leDioMegusta(usuario: Usuario) = meGustas.contains(usuario)
 }
 
 class Foto(val alto: Int, val ancho: Int) : Publicacion() {
