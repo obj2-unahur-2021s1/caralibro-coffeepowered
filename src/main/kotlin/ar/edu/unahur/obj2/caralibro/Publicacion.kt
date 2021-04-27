@@ -6,10 +6,10 @@ abstract class Publicacion {
   abstract fun espacioQueOcupa(): Int
 
   val meGustaRecibidos = mutableListOf<Usuario>()
-  abstract fun cantidadMeGusta(): Int { meGustaRecibidos.size }
+  fun cantidadMeGusta(): Int { return meGustaRecibidos.size }
 
   //permisos posibles: publico, soloAmigos, privadoConPermitidos, publicoConExcluidos
-  val permisoVisibilidad(): "publico" //iniciado por defecto en publico
+  var permisoVisibilidad =  "publico" //iniciado por defecto en publico
 
   //para publicaciones privadas con permitidos
   val permitidos = mutableListOf<Usuario>()
@@ -34,7 +34,7 @@ abstract class Publicacion {
   //permisos posibles: publico, soloAmigos, privadoConPermitidos, publicoConExcluidos
   fun cambiarPermisoVisibilidadA_(nuevoPermiso: String)
   {
-    nuevoPermiso = permisoVisibilidad
+    permisoVisibilidad = nuevoPermiso
   }
 
 }
