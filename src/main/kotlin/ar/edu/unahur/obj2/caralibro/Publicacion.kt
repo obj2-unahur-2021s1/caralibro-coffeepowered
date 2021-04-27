@@ -18,13 +18,13 @@ abstract class Publicacion {
     //para publicaciones publicas con excluidos
     val excluidos = mutableListOf<Usuario>()
 
-    val amigosGenerales = mutableListOf<Usuario>()
+    val amigos = mutableListOf<Usuario>()
 
     //lo usuarios le pueden dar me gusta a una publicacion, se tiene que saber
     // que usuario dio me gusta y un usuario solo dar me gusta 1 vez.
     fun recibirMegustaDe_(usuarioActual: Usuario)
     {  //si usuarioActual no dio me gusta aun, lo agrego a la lista de me gusta
-        if (usuarioActual !in meGustaRecibidos)
+        if (puedeVer && usuarioActual !in meGustaRecibidos)
         {
             meGustaRecibidos.add(usuarioActual)
         }
@@ -41,16 +41,20 @@ abstract class Publicacion {
     }
 
     //indica si un usuario puede ver la publicacion
+    var puedeVer = false
     fun puedeVerPublicacion(usuarioActual: Usuario) {
         if (permisoVisibilidad == "publico"){
-            true
+            puedeVer = true
         }
-        if (permisoVisibilidad == "amigo privado" && permitidos.contains(usuarioActual)){
-            true
+        if (permisoVisibilidad == "soloAmigos" && amigos.contains(usuarioActual)){
+             puedeVer = true
         }
-        if (permisoVisibilidad == "amigo" && amigosGenerales.contains(usuarioActual)){
-            true
+        if (permisoVisibilidad == "privadoConPermitidos" && permitidos.contains(usuarioActual)){
+            puedeVer = true
         }
+        if (permisoVisibilidad == "publicoConExcluidos" && excluidos.contains(usuarioActual) ){
+             puedeVer = false
+        } //estoy casi seguro de que hay una forma mas breve de escribir esto pero no se me ocurre ahora
     }
 }
 
