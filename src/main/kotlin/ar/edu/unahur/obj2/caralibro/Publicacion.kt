@@ -15,13 +15,21 @@ class Texto(val contenido: String) : Publicacion() {
   override fun espacioQueOcupa() = contenido.length
 }
 
-class Video (val segundos: Int, var calidadDeVideo: Int) : Publicacion(){
-  //var calidadDeVideo: Int = videoSD
-  //val videoSD: Int = 1
-  //val video720p: Int = 3
-  //val video1080p: Int = 6
-  override fun espacioQueOcupa() = segundos * calidadDeVideo
-  fun cambiarCalidadDelVideo(calidad: Int) {
+class Video (val segundos: Int) : Publicacion(){
+  var calidadDeVideo: String = "SD"
+
+  //Espacio que ocupa video en bytes dependiendo de la calidad del video
+  override fun espacioQueOcupa(): Int {
+    var espacioDelVideoActual : Int =segundos
+
+    if (calidadDeVideo == "SD") { espacioDelVideoActual = segundos * 1}
+    if (calidadDeVideo == "720p") { espacioDelVideoActual = segundos * 3}
+    if (calidadDeVideo == "1080p") {espacioDelVideoActual = segundos * 6}
+    return espacioDelVideoActual
+  }
+
+  //cambia la calidad del video
+  fun cambiarCalidadDelVideo(calidad: String) {
     calidadDeVideo = calidad
   }
 }
