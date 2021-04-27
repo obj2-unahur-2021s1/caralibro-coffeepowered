@@ -18,6 +18,8 @@ abstract class Publicacion {
     //para publicaciones publicas con excluidos
     val excluidos = mutableListOf<Usuario>()
 
+    val amigosGenerales = mutableListOf<Usuario>()
+
     //lo usuarios le pueden dar me gusta a una publicacion, se tiene que saber
     // que usuario dio me gusta y un usuario solo dar me gusta 1 vez.
     fun recibirMegustaDe_(usuarioActual: Usuario)
@@ -36,6 +38,19 @@ abstract class Publicacion {
     fun cambiarPermisoVisibilidadA_(nuevoPermiso: String)
     {
         permisoVisibilidad = nuevoPermiso
+    }
+
+    //indica si un usuario puede ver la publicacion
+    fun puedeVerPublicacion(usuarioActual: Usuario) {
+        if (permisoVisibilidad == "publico"){
+            true
+        }
+        if (permisoVisibilidad == "amigo privado" && permitidos.contains(usuarioActual)){
+            true
+        }
+        if (permisoVisibilidad == "amigo" && amigosGenerales.contains(usuarioActual)){
+            true
+        }
     }
 }
 
@@ -65,4 +80,8 @@ class Video (val segundos: Int) : Publicacion(){
     fun cambiarCalidadDelVideo(calidad: String) {
         calidadDeVideo = calidad
     }
+}
+
+class Permiso(){
+
 }

@@ -6,6 +6,7 @@ class Usuario {
   val publicaciones = mutableListOf<Publicacion>()
   val amigos = mutableListOf<Usuario>()
 
+
   fun agregarPublicacion(publicacion: Publicacion) {
     publicaciones.add(publicacion)
   }
@@ -13,3 +14,4 @@ class Usuario {
   fun espacioDePublicaciones() = publicaciones.sumBy { it.espacioQueOcupa() }
   
 }
+
