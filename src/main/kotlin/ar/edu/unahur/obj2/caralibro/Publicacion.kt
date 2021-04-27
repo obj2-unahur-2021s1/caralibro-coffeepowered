@@ -7,6 +7,7 @@ abstract class Publicacion {
 
     val meGustaRecibidos = mutableListOf<Usuario>()
     fun cantidadMeGusta(): Int { return meGustaRecibidos.size }
+    fun usuariosQueDieronMeGusta() = meGustaRecibidos
 
     //permisos posibles: publico, soloAmigos, privadoConPermitidos, publicoConExcluidos
     var permisoVisibilidad =  "publico" //iniciado por defecto en publico
@@ -36,7 +37,6 @@ abstract class Publicacion {
     {
         permisoVisibilidad = nuevoPermiso
     }
-
 }
 
 class Foto(val alto: Int, val ancho: Int) : Publicacion() {

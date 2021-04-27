@@ -11,11 +11,5 @@ class Usuario {
   }
 
   fun espacioDePublicaciones() = publicaciones.sumBy { it.espacioQueOcupa() }
-
-  //fun darMegusta(publicacion: Publicacion){
-  //  if (this.leDioMegusta(publicacion)){
-  //    throw Exception("ya le dio me gusta a la publicacion")
-  //  }
-  //  publicacion.meGustas.add()
-  //}
+  
 }
