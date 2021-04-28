@@ -8,6 +8,9 @@ class UsuarioTest : DescribeSpec({
     val saludoCumpleanios = Texto("Felicidades Pepito, que los cumplas muy feliz")
     val fotoEnCuzco = Foto(768, 1024)
     //val videoPublicado = Video(120)
+    val videoSD = Video( 60 , "SD")
+    val video720 = Video(60 , "720p")
+    val video1080 = Video(60 , "1080p")
 
     describe("Una publicación") {
       describe("de tipo foto") {
@@ -23,7 +26,10 @@ class UsuarioTest : DescribeSpec({
       }
       describe("de tipo video") {
         it("depende de la calidad del video") {
-
+           //videoPublicado.espacioQueOcupa().shouldBe(120)
+           videoSD.espacioQueOcupa().shouldBe(60)
+           video720.espacioQueOcupa().shouldBe(180)
+           video1080.espacioQueOcupa().shouldBe(360)
         }
       }
     }

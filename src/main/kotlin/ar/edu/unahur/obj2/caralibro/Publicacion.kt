@@ -70,8 +70,8 @@ class Texto(val contenido: String) : Publicacion() {
     override fun espacioQueOcupa() = contenido.length
 }
 
-class Video (val segundos: Int) : Publicacion(){
-    var calidadDeVideo: String = "SD"
+class Video (val segundos: Int, val calidadDeVideo: String ) : Publicacion(){
+    //var calidadDeVideo: String = "SD"
 
     //Espacio que ocupa video en bytes dependiendo de la calidad del video
     override fun espacioQueOcupa(): Int {
@@ -84,7 +84,7 @@ class Video (val segundos: Int) : Publicacion(){
     }
 
     //cambia la calidad del video
-    fun cambiarCalidadDelVideo(calidad: String) {
-        calidadDeVideo = calidad
-    }
+    //fun cambiarCalidadDelVideo(calidad: String) {
+    //    calidadDeVideo = calidad }
+
 }
