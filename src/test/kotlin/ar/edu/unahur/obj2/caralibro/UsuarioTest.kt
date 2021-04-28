@@ -22,6 +22,7 @@ class UsuarioTest : DescribeSpec({
       describe("de tipo texto") {
         it("ocupa tantos bytes como su longitud") {
           saludoCumpleanios.espacioQueOcupa().shouldBe(45)
+
         }
       }
       describe("de tipo video") {
@@ -40,6 +41,21 @@ class UsuarioTest : DescribeSpec({
         juana.agregarPublicacion(fotoEnCuzco)
         juana.agregarPublicacion(saludoCumpleanios)
         juana.espacioDePublicaciones().shouldBe(550548)
+      }
+
+
+        describe("otro usuario") {
+          it("puede dar me gusta a una publicacion") {
+            val raul = Usuario()
+            val matias = Usuario()
+            fotoEnCuzco.recibirMegustaDe_(raul)
+            fotoEnCuzco.cantidadMeGusta().shouldBe(1)
+
+            raul.agregarAmigo(matias)
+            raul.cantidadAmigos().shouldBe(1)
+            matias.cantidadAmigos().shouldBe(1)
+          }
+
       }
     }
   }
