@@ -9,6 +9,8 @@ abstract class Publicacion {
     fun cantidadMeGusta(): Int { return meGustaRecibidos.size }
     fun usuariosQueDieronMeGusta() = meGustaRecibidos
 
+    fun leDioMeGusta(usuario: Usuario) = meGustaRecibidos.contains(usuario)
+
     //permisos posibles: publico, soloAmigos, privadoConPermitidos, publicoConExcluidos
     var permisoVisibilidad =  "publico" //iniciado por defecto en publico
 
