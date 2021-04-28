@@ -50,6 +50,7 @@ class UsuarioTest : DescribeSpec({
             val raul = Usuario()
             val matias = Usuario()
             matias.agregarPublicacion(fotoGato)
+            matias.agregarAmigo(raul)
             fotoGato.recibirMegustaDe_(raul)
             fotoGato.cantidadMeGusta().shouldBe(1)
 

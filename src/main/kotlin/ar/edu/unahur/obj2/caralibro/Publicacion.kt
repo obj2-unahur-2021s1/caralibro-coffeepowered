@@ -26,7 +26,7 @@ abstract class Publicacion {
     // que usuario dio me gusta y un usuario solo dar me gusta 1 vez.
     fun recibirMegustaDe_(usuarioActual: Usuario)
     {  //si usuarioActual no dio me gusta aun, lo agrego a la lista de me gusta
-        if (puedeVer && usuarioActual !in meGustaRecibidos)
+        if (puedeVerPublicacion(usuarioActual) && usuarioActual !in meGustaRecibidos)
         {
             meGustaRecibidos.add(usuarioActual)
         }
