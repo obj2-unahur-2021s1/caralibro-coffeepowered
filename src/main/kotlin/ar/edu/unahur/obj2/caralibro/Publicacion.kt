@@ -42,7 +42,7 @@ abstract class Publicacion {
 
     //indica si un usuario puede ver la publicacion
     var puedeVer = false
-    fun puedeVerPublicacion(usuarioActual: Usuario) {
+    fun puedeVerPublicacion(usuarioActual: Usuario): Boolean {
         if (permisoVisibilidad == "publico"){
             puedeVer = true
         }
@@ -55,6 +55,7 @@ abstract class Publicacion {
         if (permisoVisibilidad == "publicoConExcluidos" && excluidos.contains(usuarioActual) ){
              puedeVer = false
         } //estoy casi seguro de que hay una forma mas breve de escribir esto pero no se me ocurre ahora
+        return puedeVer
     }
 }
 
@@ -84,8 +85,4 @@ class Video (val segundos: Int) : Publicacion(){
     fun cambiarCalidadDelVideo(calidad: String) {
         calidadDeVideo = calidad
     }
-}
-
-class Permiso(){
-
 }

@@ -12,6 +12,12 @@ class Usuario {
   }
 
   fun espacioDePublicaciones() = publicaciones.sumBy { it.espacioQueOcupa() }
-  
-}
 
+  fun esMasAmistoso_Que_(unUsuario: Usuario, otroUsuario: Usuario) {
+    unUsuario.amigos.size > otroUsuario.amigos.size
+  }
+
+  fun mejoresAmigos() = amigos.filter { a -> this.puedenVerTodasLasPublicaciones(a) }
+
+  fun puedenVerTodasLasPublicaciones(usuario: Usuario) = publicaciones.all { p -> p.puedeVerPublicacion(usuario) }
+}
