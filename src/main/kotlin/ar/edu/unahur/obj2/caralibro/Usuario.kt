@@ -20,4 +20,8 @@ class Usuario {
   fun mejoresAmigos() = amigos.filter { a -> this.puedenVerTodasLasPublicaciones(a) }
 
   fun puedenVerTodasLasPublicaciones(usuario: Usuario) = publicaciones.all { p -> p.puedeVerPublicacion(usuario) }
+
+  fun amigoMasPopular() = amigos.maxByOrNull { a -> a.cantidadDeMegustaTotal() }
+
+  fun cantidadDeMegustaTotal() = publicaciones.sumBy { it.cantidadMeGusta() }
 }
